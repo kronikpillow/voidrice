@@ -13,7 +13,15 @@ application/pdf=pdf.desktop;
 image/png=img.desktop;
 image/jpeg=img.desktop;
 image/gif=img.desktop;
-application/rss+xml=rss.desktop
-video/x-matroska=video.desktop
-x-scheme-handler/lbry=lbry.desktop
-inode/directory=file.desktop
+application/rss+xml=rss.desktop;
+video/x-matroska=video.desktop;
+x-scheme-handler/lbry=lbry.desktop;
+inode/directory=file.desktop;
+inode/x-empty=text.desktop;
+application/csv=text.desktop;
+application/json=text.desktop;
+text/xml=text.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-FPPS00.desktop
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-FPPS00.desktop;
