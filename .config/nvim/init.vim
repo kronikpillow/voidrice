@@ -122,6 +122,9 @@ set noshowcmd
 	autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
 	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
 
+" Display whitespace, tabs, trailing space, end of line, extends, precedes
+	map <leader>wsp :<C-U>setlocal lcs=tab:>-,trail:-,eol:$,extends:>,precedes:< list! list? <CR>
+
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 	autocmd BufWritePre * %s/\s\+$//e
 	autocmd BufWritePre * %s/\n\+\%$//e
