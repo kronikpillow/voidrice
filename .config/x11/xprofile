@@ -10,6 +10,7 @@ remaps &		# run the remaps script, switching caps/esc and more; check it for mor
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 unclutter &		# Remove mouse when idle
+numlockx &		# Enable NumLock on login
 
 # This line autostarts an instance of Pulseaudio that does not exit on idle.
 # This is "necessary" on Artix due to a current bug between PA and
