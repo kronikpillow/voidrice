@@ -9,21 +9,19 @@ endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'arcticicestudio/nord-vim'
-Plug 'tpope/vim-surround'
+Plug 'bling/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
-Plug 'jreybert/vimagit'
-Plug 'lukesmithxyz/vimling'
-Plug 'vimwiki/vimwiki'
-Plug 'bling/vim-airline'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'jreybert/vimagit'
 Plug 'ap/vim-css-color'
 call plug#end()
 
 set title
 set bg=dark
-colo nord
 set termguicolors
+colo nord
 let g:nord_cursor_line_number_background = 1
 let g:nord_uniform_status_lines = 1
 let g:nord_bold_vertical_split_line = 1
@@ -32,14 +30,14 @@ let g:nord_bold = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_underline = 1
+set nohlsearch
 set go=a
 set mouse=a
-set nohlsearch
 set clipboard+=unnamedplus
 set noshowmode
+set noshowcmd
 set noruler
 set laststatus=0
-set noshowcmd
 
 " Some basics:
 	nnoremap c "_c
@@ -55,9 +53,9 @@ set noshowcmd
 " Perform dot commands over visual blocks:
 	vnoremap . :normal .<CR>
 " Goyo plugin makes text more readable when writing prose:
-	map <leader>f :Goyo \| set bg=dark \| set linebreak<CR>
+	map <leader>g :Goyo \| set bg=dark \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
-	map <leader>o :setlocal spell! spelllang=en_us<CR>
+	map <leader>s :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitbelow splitright
 
@@ -70,13 +68,6 @@ set noshowcmd
         let NERDTreeBookmarksFile = '~/.vim' . '/NERDTreeBookmarks'
     endif
 
-" vimling:
-	nm <leader><leader>d :call ToggleDeadKeys()<CR>
-	imap <leader><leader>d <esc>:call ToggleDeadKeys()<CR>a
-	nm <leader><leader>i :call ToggleIPA()<CR>
-	imap <leader><leader>i <esc>:call ToggleIPA()<CR>a
-	nm <leader><leader>q :call ToggleProse()<CR>
-
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
 	map <C-j> <C-w>j
@@ -85,13 +76,6 @@ set noshowcmd
 
 " Replace ex mode with gq
 	map Q gq
-
-" Check file in shellcheck:
-	map <leader>s :!clear && shellcheck -x %<CR>
-
-" Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
 
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
@@ -106,9 +90,6 @@ set noshowcmd
 	autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
-	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-	map <leader>v :VimwikiIndex
-	let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
 	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
@@ -127,8 +108,8 @@ set noshowcmd
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 	autocmd BufWritePre * %s/\s\+$//e
-	autocmd BufWritePre * %s/\n\+\%$//e
-	autocmd BufWritePre *.[ch] %s/\%$/\r/e
+	" autocmd BufWritePre * %s/\n\+\%$//e
+	" autocmd BufWritePre *.[ch] %s/\%$/\r/e
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
 	autocmd BufWritePost bm-files,bm-dirs !shortcuts
