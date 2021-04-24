@@ -1,0 +1,17 @@
+# -------
+# Modules
+# -------
+
+zmodule environment
+zmodule input
+zmodule termtitle
+zmodule utility
+zmodule exa
+zmodule archive
+zmodule fzf
+
+zmodule zsh-users/zsh-completions
+zmodule completion
+zmodule zsh-users/zsh-autosuggestions
+zmodule zdharma/fast-syntax-highlighting
+zmodule zsh-users/zsh-history-substring-search
