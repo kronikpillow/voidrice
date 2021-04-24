@@ -10,7 +10,6 @@
     padding = 0
     horizontal_padding = 8
     frame_width = 3
-    frame_color = "#282828"
 
     # Define a color for the separator.
     # possible values are:
@@ -54,7 +53,8 @@
     sticky_history = yes
     history_length = 20
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/firefox -new-tab
+    browser = /usr/bin/brave --new-window
+    # browser = /usr/bin/firefox -new-tab
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -75,21 +75,23 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#282828"
-    foreground = "#928374"
+    background = "#3b4252"
+    foreground = "#5e81ac"
+    frame_color = "#5e81ac"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#458588"
-    foreground = "#ebdbb2"
+    background = "#3b4252"
+    foreground = "#81a1c1"
+    frame_color = "#81a1c1"
     timeout = 5
 
 [urgency_critical]
-    background = "#cc2421"
-    foreground = "#ebdbb2"
-    frame_color = "#fabd2f"
+    background = "#3b4252"
+    foreground = "#88c0d0"
+    frame_color = "#88c0d0"
     timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules to
